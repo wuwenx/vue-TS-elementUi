@@ -5,6 +5,11 @@
         <el-table :data="userData" style="width: 100%" max-height="500">
           <el-table-column fixed prop="uId" label="编号" width="150"></el-table-column>
           <el-table-column prop="uName" label="姓名" width="120"></el-table-column>
+          <el-table-column label="头像" width="120">
+            <template slot-scope="scope">
+             <img v-if="scope.row.picture" :src="'http://localhost:4000/upload/'+scope.row.picture" width="50" height="50">
+            </template>
+          </el-table-column>
           <el-table-column prop="uAge" label="年龄" width="120"></el-table-column>
           <el-table-column prop="uSex" label="性别" width="120"></el-table-column>
           <el-table-column prop="like" label="爱好" width="300"></el-table-column>

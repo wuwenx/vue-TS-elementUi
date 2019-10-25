@@ -54,6 +54,7 @@ export default class FromSelect extends Vue {
     uAge: "",
     uSex: 1,
     like: "",
+    picture: "",
     address: "",
     remake: ""
   };
@@ -79,17 +80,22 @@ export default class FromSelect extends Vue {
     this.$refs[formName].resetFields();
   }
   myUpload(content) {
+    let self=this;
     let formData = new FormData();
     formData.append("file", content.file); // 'file[]' 代表数组 其中`file`是可变的
     this.$https
       .post(content.action, formData)
-      .then(rs => {})
+      .then(rs => {
+        if(rs.code===1){
+          self.form.picture=rs.url;
+        }
+      })
       .catch(err => {
         console.log(err);
       });
   }
-  handlePreview(file){
-    debugger
+  handlePreview(file) {
+    debugger;
   }
 }
 </script>
