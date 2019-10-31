@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <HelloWorld msg="Hello World"/>
+    <HelloWorld msg="添加信息"/>
     <FromSelect></FromSelect>
 
   </div>
